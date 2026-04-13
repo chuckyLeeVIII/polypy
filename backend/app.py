@@ -4,8 +4,10 @@ PolyPi Pure — FastAPI Fullstack Backend v1.0
 Serves the PolyPy DYTX runtime API + static frontend
 
 Run:
-    pip install fastapi uvicorn
+    pip install -e ".[fullstack]"
     uvicorn backend.app:app --reload
+    # OR via the installed CLI:
+    polypi-serve
 """
 
 from __future__ import annotations
@@ -175,3 +177,22 @@ h1{color:#f0883e;}a{color:#58a6ff;}</style></head>
 <p>→ <a href="/api/proofs">Proofs list</a></p>
 </body></html>
     """
+
+
+# ---------------------------------------------------------------------------
+# CLI shim — required by pyproject.toml [project.scripts]
+# polypi-serve = "backend.app:start"
+# ---------------------------------------------------------------------------
+def start() -> None:
+    """Entry point for `polypi-serve` console script."""
+    import uvicorn  # type: ignore[import]
+    uvicorn.run(
+        "backend.app:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=False,
+    )
+
+
+if __name__ == "__main__":
+    start()
