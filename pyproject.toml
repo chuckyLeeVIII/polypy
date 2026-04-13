@@ -7,7 +7,7 @@ name = "polypi-pure"
 version = "1.0.0"
 description = "PolyPi Pure — PolyPy + DYTX fullstack runtime (FastAPI backend + vanilla JS dashboard)"
 readme = "README.md"
-license = { text = "MIT" }
+license = "MIT"
 authors = [
   { name = "chuckyLeeVIII", email = "chuckyLeeVIII@users.noreply.github.com" }
 ]
@@ -53,13 +53,13 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/chuckyLeeVIII/PolyPy--a-master-and-universal-guide-and-proof-of-work-to-polly-py-paradigm"
-Repository = "https://github.com/chuckyLeeVIII/PolyPy--a-master-and-universal-guide-and-proof-of-work-to-polly-py-paradigm"
-Issues = "https://github.com/chuckyLeeVIII/PolyPy--a-master-and-universal-guide-and-proof-of-work-to-polly-py-paradigm/issues"
+Homepage   = "https://github.com/chuckyLeeVIII/polypy"
+Repository = "https://github.com/chuckyLeeVIII/polypy"
+Issues     = "https://github.com/chuckyLeeVIII/polypy/issues"
 
 [project.scripts]
-# CLI entry: start the fullstack backend
-polypi-serve = "backend.app:app"
+# CLI entry: `polypi-serve` launches the FastAPI backend via uvicorn
+polypi-serve = "backend.app:start"
 
 [tool.hatch.build.targets.wheel]
 packages = ["dytx", "backend"]
